@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#180914">
+<title>Yalnızca Sana ❤️</title>
+<style>
+:root{--pink:#ff7da8;--rose:#ff477e;--cream:#fff1f5;--bg:#180914}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;color:var(--cream);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 50% 0%,#57203d 0%,#2a1023 38%,var(--bg) 78%);display:flex;align-items:center;justify-content:center;padding:22px;overflow-x:hidden}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.float{position:absolute;bottom:-50px;color:#ff9cba;opacity:.55;animation:rise linear forwards;filter:drop-shadow(0 0 8px #ff477e)}
+@keyframes rise{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+.card{position:relative;z-index:1;width:min(100%,520px);padding:clamp(24px,6vw,42px);border:1px solid #ffb4cb66;border-radius:28px;background:#260f20d9;box-shadow:0 18px 80px #0007,0 0 35px #ff477e18;text-align:center;backdrop-filter:blur(10px)}
+.eyebrow{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#ff9fbd}
+h1{font-size:clamp(30px,8vw,44px);line-height:1.1;margin:14px 0;color:#fff0f5;font-weight:normal}
+p{font-size:17px;line-height:1.75;color:#f9dce7}
+button,input{width:100%;border-radius:14px;padding:15px 16px;font:16px system-ui,sans-serif}
+input{margin:8px 0 12px;background:#170a14;border:1px solid #a44d70;color:white;outline:none}
+input:focus{border-color:var(--pink);box-shadow:0 0 0 3px #ff7da833}
+button{border:0;background:linear-gradient(110deg,#ff8bb0,#ff477e);color:#2a0b1a;font-weight:700;cursor:pointer;transition:transform .2s,filter .2s}
+button:hover{transform:translateY(-2px);filter:brightness(1.06)}
+button:active{transform:scale(.99)}
+.error{min-height:22px;color:#ffadc5;font:14px system-ui,sans-serif}
+.hidden{display:none!important}
+.heart{font-size:46px;display:inline-block;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.18);filter:drop-shadow(0 0 12px #ff477e)}}
+.reveal{animation:reveal .9s ease both}
+@keyframes reveal{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.letter{white-space:pre-line;text-align:left;padding:22px 20px;border-radius:18px;background:#fff4f6;color:#55213b;font-size:17px;line-height:1.85;box-shadow:inset 0 0 0 1px #f3b4c9}
+.letter strong{color:#b32960}
+.small{font:12px/1.5 system-ui,sans-serif;color:#cfa9b9;margin-top:20px}
+.date-line{font:14px system-ui,sans-serif;color:#ffb1c9;letter-spacing:.06em}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+<main class="card">
+  <section id="welcome">
+    <div class="eyebrow">Sana özel, kalbimden bir sürpriz</div>
+    <div class="heart" aria-hidden="true">♥</div>
+    <h1>Yavrum, hazır mısın?</h1>
+    <p>Bizim hikâyemizin küçük bir kapısı var…<br>Doğru günü ve sana ait şifreyi bilen açabilir. ❤️</p>
+    <button id="start">Sürprizi aç</button>
+    <div class="small">Her şey, bizim günümüzle başlıyor.</div>
+  </section>
+
+  <section id="gate" class="hidden">
+    <div class="eyebrow">İlk anahtar</div>
+    <h1>Bizim günümüz 📅</h1>
+    <p>Birlikte olduğumuz o özel tarihi girer misin?</p>
+    <form id="dateForm">
+      <input id="dateInput" type="date" aria-label="Özel tarih" required>
+      <button type="submit">Devam et ♥</button>
+      <div id="dateError" class="error" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <section id="password" class="hidden">
+    <div class="eyebrow">Son anahtar</div>
+    <h1>Kalbinin şifresi 🔐</h1>
+    <p>İpucu: Sana en çok söylediğim sevgi sözcüklerinden biri…</p>
+    <form id="passwordForm">
+      <input id="passwordInput" type="password" placeholder="Şifreyi buraya yaz" autocomplete="off" required>
+      <button type="submit">Mektubumu aç ❤️</button>
+      <div id="passwordError" class="error" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <section id="letterSection" class="hidden">
+    <div class="eyebrow">Sadece sana</div>
+    <div class="heart" aria-hidden="true">♥</div>
+    <h1>Yavrum, Canımın içi…</h1>
+    <div class="date-line">21 Ocak 2026 · Bizim günümüz</div>
+    <div class="letter reveal" style="margin-top:20px">Yavrum, Canımın içi,
+
+Hayatıma girdiğin günden beri bazı şeyler daha güzel, bazı günler daha anlamlı. Bazen tek bir mesajın, bir gülüşün ya da sesini duymak bile bütün yorgunluğumu unutturuyor.
+
+Seninle geçirdiğim her an benim için çok kıymetli. Birlikte daha nice anılar biriktirmek, en sıradan günleri bile güzelleştirmek ve ne olursa olsun birbirimizin yanında olmak istiyorum.
+
+Belki sana her zaman kelimelerle anlatamıyorum ama kalbimdeki yerin çok özel. İyi ki yollarımız kesişmiş, iyi ki “biz” olmuşuz. Bugün de yarın da sana sevgimi hissettirmek, yüzünü güldürmek ve elini sımsıkı tutmak istiyorum.
+
+<strong>Seni çok seviyorum, yavrum.</strong> İyi ki varsın, canımın içi. Bu küçük sürpriz de sana kocaman sevgimin minicik bir hatırası olsun. ❤️
+
+Sonsuz sevgimle… ♥</div>
+    <button id="again" style="margin-top:18px">Bir daha oku 💌</button>
+  </section>
+</main>
+<script>
+const sections = ['welcome','gate','password','letterSection'];
+function show(id){sections.forEach(s=>document.getElementById(s).classList.toggle('hidden',s!==id));}
+document.getElementById('start').addEventListener('click',()=>show('gate'));
+document.getElementById('dateForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const value=document.getElementById('dateInput').value;
+  if(value==='2026-01-21'){document.getElementById('dateError').textContent='';show('password');}
+  else document.getElementById('dateError').textContent='Hmm… bizim özel günümüzü bir daha düşün ❤️';
+});
+document.getElementById('passwordForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const value=document.getElementById('passwordInput').value.trim().toLocaleLowerCase('tr-TR');
+  if(value==='yavrum'){document.getElementById('passwordError').textContent='';show('letterSection');}
+  else document.getElementById('passwordError').textContent='Bu şifre olmadı, bir daha dene canım ❤️';
+});
+document.getElementById('again').addEventListener('click',()=>{
+  const letter=document.querySelector('.letter');letter.classList.remove('reveal');void letter.offsetWidth;letter.classList.add('reveal');
+});
+const heartBox=document.getElementById('hearts');
+function addHeart(){
+  const h=document.createElement('span');h.className='float';h.textContent=Math.random()>.25?'♥':'♡';
+  h.style.left=(Math.random()*100)+'%';h.style.fontSize=(12+Math.random()*24)+'px';
+  const duration=7+Math.random()*8;h.style.animationDuration=duration+'s';heartBox.appendChild(h);
+  setTimeout(()=>h.remove(),duration*1000);
+}
+for(let i=0;i<12;i++)setTimeout(addHeart,i*350);
+setInterval(addHeart,900);
+</script>
+</body>
+</html>
